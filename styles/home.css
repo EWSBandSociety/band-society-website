@@ -1,0 +1,86 @@
+/*
+Home page styling
+This file is licensed under the MIT license.
+Copyright (C) 2025 Ethan Bayer
+*/
+/*
+Base styling
+This file is licensed under the MIT license.
+Copyright (C) 2025 Ethan Bayer
+*/
+@font-face {
+  font-family: "Route 159";
+  src: url("../fonts/route159-regular-webfont.woff2") format("woff2"), url("../fonts/route159-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Route 159";
+  src: url("../fonts/route159-italic-webfont.woff2") format("woff2"), url("../fonts/route159-italic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Rambla";
+  src: url("../fonts/rambla-regular-webfont.woff2") format("woff2"), url("../fonts/rambla-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Rambla";
+  src: url("../fonts/rambla-bold-webfont.woff2") format("woff2"), url("../fonts/rambla-bold-webfont.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+body {
+  background: #013783;
+  font-family: "Route 159", Helvetica, Arial, sans-serif;
+  padding-top: 70px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  font-family: "Rambla", Helvetica, Arial, sans-serif;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  justify-content: space-between;
+  background-color: hsl(215, 98%, 41%);
+  border-radius: 12px;
+  min-height: 60px;
+}
+header .logo {
+  text-decoration: none;
+  font-size: 2rem;
+  color: hsl(210, 100%, 97%);
+  margin: 6px 6px 6px 16px;
+}
+header nav {
+  font-size: 1.2rem;
+}
+header nav ul {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  list-style: none;
+  margin: 0 16px 0 0;
+  padding: 0;
+}
+header nav a {
+  display: flex;
+  align-items: center;
+  padding: 8px 1.5vw;
+  text-align: center;
+  text-decoration: none;
+  color: #bddeff;
+  background-color: #0246a7;
+  border-radius: 8px;
+}
+header nav a:hover {
+  background-color: #01265b;
+}
+header nav a.selected {
+  background-color: #012d6a;
+}/*# sourceMappingURL=home.css.map */
