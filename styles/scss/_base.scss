@@ -4,6 +4,8 @@ This file is licensed under the MIT license.
 Copyright (C) 2025 Ethan Bayer
 */
 
+@use "sass:color";
+
 @font-face {
   font-family: "Route 159";
   src: url("../fonts/route159-regular-webfont.woff2") format("woff2"),
@@ -33,49 +35,66 @@ Copyright (C) 2025 Ethan Bayer
   font-style: normal;
 }
 
-$main: hsl(215, 98%, 41%);
-$light-main: lighten($main, 8%);
-$medium-dark-main: darken($main, 8%);
-$dark-main: darken($main, 15%);
+$main: hsl(215, 100%, 28%);
+$light-main: color.scale($main, $lightness: 15%, $space: hsl);
+$medium-main: color.scale($main, $lightness: -15%, $space: hsl);
+$dark-main: color.scale($main, $lightness: -30%, $space: hsl);
+$darker-main: color.scale($main, $lightness: -50%, $space: hsl);
 
 $white: hsl(210, 100%, 97%);
-$dark-white: darken($white, 10%);
+$dark-white: color.scale($white, $lightness: -10%, $space: hsl);
 $black: hsl(0, 0%, 10%);
 
 $header-height: 60px;
 $header-height-inclusive: $header-height + 10px;
 
-$header-fonts: "Rambla", Helvetica, Arial, sans-serif;
-$body-fonts: "Route 159", Helvetica, Arial, sans-serif;
-
 @mixin flex-center-align {
   display: flex;
   align-items: center;
 }
-
-body {
-  background: $dark-main;
-  font-family: $body-fonts;
-  padding-top: $header-height-inclusive;
+@mixin header-font {
+  font-family: "Rambla", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+@mixin body-font {
+  font-family: "Route 159", Helvetica, Arial, sans-serif;
 }
 
-header {
+body {
+  background: $medium-main;
+  padding-top: $header-height-inclusive;
+  text-align: center;
+}
+p {
+  @include body-font;
+}
+h1,
+h2,
+h3 {
+  @include header-font;
+}
+
+body > header {
   @include flex-center-align;
-  font-family: $header-fonts;
+  @include header-font;
   position: fixed;
   top: 10px;
   left: 10px;
   right: 10px;
   justify-content: space-between;
-  background-color: $main;
-  border-radius: 12px;
   min-height: $header-height;
+  z-index: 1;
+
+  background-color: $light-main;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px $dark-main;
 
   .logo {
     text-decoration: none;
     font-size: 2rem;
     color: $white;
     margin: 6px 6px 6px 16px;
+    text-align: left;
   }
 
   nav {
@@ -92,17 +111,15 @@ header {
       @include flex-center-align;
       padding: 8px 1.5vw;
 
-      text-align: center;
       text-decoration: none;
       color: $dark-white;
-      background-color: $medium-dark-main;
       border-radius: 8px;
 
       &:hover {
-        background-color: darken($medium-dark-main, 15%);
+        background-color: $dark-main;
       }
       &.selected {
-        background-color: darken($dark-main, 5%);
+        background-color: $medium-main;
       }
     }
   }
