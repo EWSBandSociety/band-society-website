@@ -31,7 +31,7 @@ Copyright (C) 2025 Ethan Bayer
     }
 
     img {
-      border-radius: base.$radius-large;
+      border-radius: base.$radius-large - 2px;
     }
   }
 }

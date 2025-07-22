@@ -107,8 +107,7 @@ body > header nav a:hover {
   background: hsl(210, 6%, 20.95%);
 }
 body > header nav a.selected {
-  color: hsl(0, 87%, 64%);
-  background: transparent;
+  background: hsl(0, 38%, 23%);
 }
 
 .board-grid {
@@ -134,5 +133,5 @@ body > header nav a.selected {
   margin: 0.4rem 0 0 0;
 }
 .board-grid article img {
-  border-radius: 16px;
+  border-radius: 14px;
 }/*# sourceMappingURL=board.css.map */

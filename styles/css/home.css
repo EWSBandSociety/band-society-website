@@ -107,6 +107,5 @@ body > header nav a:hover {
   background: hsl(210, 6%, 20.95%);
 }
 body > header nav a.selected {
-  color: hsl(0, 87%, 64%);
-  background: transparent;
+  background: hsl(0, 38%, 23%);
 }/*# sourceMappingURL=home.css.map */

@@ -40,8 +40,7 @@ $bg-light: color.scale($bg, $lightness: 15%, $space: hsl);
 $bg-dark: color.scale($bg, $lightness: -30%, $space: hsl);
 $text: hsl(210, 38%, 95%);
 $text-muted: hsl(213, 6%, 65%);
-$accent: hsl(0, 87%, 64%);
-$accent-dark: color.scale($accent, $lightness: -15%, $space: hsl);
+$accent: hsl(0, 38%, 23%);
 
 $radius-large: 16px;
 $radius-small: 8px;
@@ -129,8 +128,7 @@ body > header {
         background: $bg-light;
       }
       &.selected {
-        color: $accent;
-        background: transparent;
+        background: $accent;
       }
     }
   }
