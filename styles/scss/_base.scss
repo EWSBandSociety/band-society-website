@@ -8,45 +8,46 @@ Copyright (C) 2025 Ethan Bayer
 
 @font-face {
   font-family: "Route 159";
-  src: url("../fonts/route159-regular-webfont.woff2") format("woff2"),
-    url("../fonts/route159-regular-webfont.woff") format("woff");
+  src: url("/assets/fonts/route159-regular-webfont.woff2") format("woff2"),
+    url("/assets/fonts/route159-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Route 159";
-  src: url("../fonts/route159-italic-webfont.woff2") format("woff2"),
-    url("../fonts/route159-italic-webfont.woff") format("woff");
+  src: url("/assets/fonts/route159-italic-webfont.woff2") format("woff2"),
+    url("/assets/fonts/route159-italic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: italic;
 }
 @font-face {
   font-family: "Rambla";
-  src: url("../fonts/rambla-regular-webfont.woff2") format("woff2"),
-    url("../fonts/rambla-regular-webfont.woff") format("woff");
+  src: url("/assets/fonts/rambla-regular-webfont.woff2") format("woff2"),
+    url("/assets/fonts/rambla-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Rambla";
-  src: url("../fonts/rambla-bold-webfont.woff2") format("woff2"),
-    url("../fonts/rambla-bold-webfont.woff") format("woff");
+  src: url("/assets/fonts/rambla-bold-webfont.woff2") format("woff2"),
+    url("/assets/fonts/rambla-bold-webfont.woff") format("woff");
   font-weight: bold;
   font-style: normal;
 }
 
-$main: hsl(215, 100%, 28%);
-$light-main: color.scale($main, $lightness: 15%, $space: hsl);
-$medium-main: color.scale($main, $lightness: -15%, $space: hsl);
-$dark-main: color.scale($main, $lightness: -30%, $space: hsl);
-$darker-main: color.scale($main, $lightness: -50%, $space: hsl);
+$bg: hsl(210, 6%, 7%);
+$bg-light: color.scale($bg, $lightness: 15%, $space: hsl);
+$bg-dark: color.scale($bg, $lightness: -30%, $space: hsl);
+$text: hsl(210, 38%, 95%);
+$text-muted: hsl(213, 6%, 65%);
+$accent: hsl(0, 87%, 64%);
+$accent-dark: color.scale($accent, $lightness: -15%, $space: hsl);
 
-$white: hsl(210, 100%, 97%);
-$dark-white: color.scale($white, $lightness: -10%, $space: hsl);
-$black: hsl(0, 0%, 10%);
+$radius-large: 16px;
+$radius-small: 8px;
 
-$header-height: 60px;
-$header-height-inclusive: $header-height + 10px;
+$header-height: 76px; // Includes 10px top margin
+$header-offset: 28px;
 
 @mixin flex-center-align {
   display: flex;
@@ -55,15 +56,19 @@ $header-height-inclusive: $header-height + 10px;
 @mixin header-font {
   font-family: "Rambla", Helvetica, Arial, sans-serif;
   font-weight: bold;
+  letter-spacing: 0.5px;
+  color: $text;
 }
 @mixin body-font {
   font-family: "Route 159", Helvetica, Arial, sans-serif;
+  color: $text;
 }
 
 body {
-  background: $medium-main;
-  padding-top: $header-height-inclusive;
+  background: $bg-dark;
+  padding-top: $header-height + $header-offset;
   text-align: center;
+  padding-bottom: 20px;
 }
 p {
   @include body-font;
@@ -73,32 +78,37 @@ h2,
 h3 {
   @include header-font;
 }
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1.8rem;
+}
 
 body > header {
   @include flex-center-align;
   @include header-font;
   position: fixed;
-  top: 10px;
-  left: 10px;
-  right: 10px;
+  top: 16px;
+  left: 16px;
+  right: 16px;
   justify-content: space-between;
   min-height: $header-height;
   z-index: 1;
 
-  background-color: $light-main;
-  border-radius: 12px;
-  box-shadow: 0 2px 4px $dark-main;
+  background-color: color.scale($bg, $lightness: 4%, $space: hsl);
+  border: 1px solid $bg-light;
+  border-radius: $radius-large;
+  box-shadow: 0px 1px 6px $bg-dark;
 
   .logo {
     text-decoration: none;
     font-size: 2rem;
-    color: $white;
+    color: $text;
     margin: 6px 6px 6px 16px;
     text-align: left;
   }
 
   nav {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 
     ul {
       @include flex-center-align;
@@ -109,17 +119,18 @@ body > header {
     }
     a {
       @include flex-center-align;
-      padding: 8px 1.5vw;
+      padding: 12px 1.8vw;
 
       text-decoration: none;
-      color: $dark-white;
-      border-radius: 8px;
+      color: $text;
+      border-radius: $radius-small;
 
       &:hover {
-        background-color: $dark-main;
+        background: $bg-light;
       }
       &.selected {
-        background-color: $medium-main;
+        color: $accent;
+        background: transparent;
       }
     }
   }

@@ -7,20 +7,31 @@ Copyright (C) 2025 Ethan Bayer
 @use "base";
 
 .board-grid {
-  @include base.flex-center-align;
+  display: flex;
   justify-content: center;
+  align-items: stretch;
   flex-flow: wrap;
-  gap: 50px;
+  gap: 40px;
 
   article {
     padding: 16px;
-    background: linear-gradient(to bottom, base.$light-main, base.$main);
-    border-radius: 20px;
-    box-shadow: 0px 1px 6px base.$darker-main;
-    color: base.$white;
+    background: base.$bg;
+    border-radius: base.$radius-large;
+    border: 1px solid base.$bg-light;
+    color: base.$text;
+
+    h2 {
+      margin-bottom: 0;
+    }
+
+    h3 {
+      color: base.$text-muted;
+      font-size: 1rem;
+      margin: 0.4rem 0 0 0;
+    }
 
     img {
-      border-radius: 16px;
+      border-radius: base.$radius-large;
     }
   }
 }
