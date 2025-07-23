@@ -1,0 +1,95 @@
+/*
+Board page styling
+This file is licensed under the MIT license.
+Copyright (C) 2025 Ethan Bayer
+*/
+
+@use "base";
+@use "sass:color";
+
+h1 {
+  margin-bottom: 0;
+}
+h2 {
+  font-size: 1.8rem;
+}
+
+.about-p {
+  margin-bottom: 3rem;
+}
+
+.board-grid {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-flow: wrap;
+  gap: 40px;
+
+  article {
+    width: 180px;
+    padding: 24px;
+    background: linear-gradient(
+        color.scale(base.$bg, $lightness: 1.5%, $space: hsl),
+        base.$bg
+      ),
+      base.$bg;
+    border-radius: base.$radius-large;
+    border: 1px solid base.$bg-light;
+    border-top: 1px solid
+      color.scale(base.$bg-light, $lightness: 5%, $space: hsl);
+    color: base.$text;
+    transition: box-shadow 0.1s;
+
+    &:hover {
+      box-shadow: 0 0 6px base.$accent;
+    }
+
+    img {
+      border: 1px solid base.$bg-light;
+      border-radius: 50%;
+    }
+    h3 {
+      font-size: 1.4rem;
+      margin: 24px 0 0 0;
+    }
+    .title-and-class {
+      @include base.flex-center-align;
+      flex-flow: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+      margin: 4px 0 15px 0;
+
+      p {
+        @include base.header-font;
+        color: base.$text-muted;
+        font-size: 1.05rem;
+        margin: 0;
+      }
+      .dot-separator {
+        width: 5px;
+        height: 5px;
+        background: base.$text-muted;
+        border-radius: 50%;
+      }
+    }
+
+    .card-socials {
+      border-top: 1px solid base.$bg-light;
+      padding-top: 13px;
+      @include base.flex-center-align;
+      justify-content: center;
+      gap: 12px;
+
+      a {
+        display: block;
+        text-decoration: none;
+      }
+      svg {
+        color: base.$text-muted;
+        &:hover {
+          color: base.$accent;
+        }
+      }
+    }
+  }
+}

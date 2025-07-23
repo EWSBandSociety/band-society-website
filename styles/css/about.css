@@ -79,7 +79,7 @@ body > header {
 }
 body > header .logo {
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 2.4rem;
   color: hsl(210, 38%, 95%);
   margin: 6px 6px 6px 16px;
   text-align: left;
@@ -107,7 +107,19 @@ body > header nav a:hover {
   background: hsl(210, 6%, 20.95%);
 }
 body > header nav a.selected {
-  background: hsl(0, 38%, 23%);
+  background: hsla(0, 88%, 37%, 0.6);
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+.about-p {
+  margin-bottom: 3rem;
 }
 
 .board-grid {
@@ -118,20 +130,64 @@ body > header nav a.selected {
   gap: 40px;
 }
 .board-grid article {
-  padding: 16px;
-  background: hsl(210, 6%, 7%);
+  width: 180px;
+  padding: 24px;
+  background: linear-gradient(hsl(210, 6%, 8.395%), hsl(210, 6%, 7%)), hsl(210, 6%, 7%);
   border-radius: 16px;
   border: 1px solid hsl(210, 6%, 20.95%);
+  border-top: 1px solid hsl(210, 6%, 24.9025%);
   color: hsl(210, 38%, 95%);
+  transition: box-shadow 0.1s;
 }
-.board-grid article h2 {
-  margin-bottom: 0;
-}
-.board-grid article h3 {
-  color: hsl(213, 6%, 65%);
-  font-size: 1rem;
-  margin: 0.4rem 0 0 0;
+.board-grid article:hover {
+  box-shadow: 0 0 6px hsl(0, 88%, 37%);
 }
 .board-grid article img {
-  border-radius: 14px;
-}/*# sourceMappingURL=board.css.map */
+  border: 1px solid hsl(210, 6%, 20.95%);
+  border-radius: 50%;
+}
+.board-grid article h3 {
+  font-size: 1.4rem;
+  margin: 24px 0 0 0;
+}
+.board-grid article .title-and-class {
+  display: flex;
+  align-items: center;
+  flex-flow: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 4px 0 15px 0;
+}
+.board-grid article .title-and-class p {
+  font-family: "Rambla", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  color: hsl(210, 38%, 95%);
+  color: hsl(213, 6%, 65%);
+  font-size: 1.05rem;
+  margin: 0;
+}
+.board-grid article .title-and-class .dot-separator {
+  width: 5px;
+  height: 5px;
+  background: hsl(213, 6%, 65%);
+  border-radius: 50%;
+}
+.board-grid article .card-socials {
+  border-top: 1px solid hsl(210, 6%, 20.95%);
+  padding-top: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.board-grid article .card-socials a {
+  display: block;
+  text-decoration: none;
+}
+.board-grid article .card-socials svg {
+  color: hsl(213, 6%, 65%);
+}
+.board-grid article .card-socials svg:hover {
+  color: hsl(0, 88%, 37%);
+}/*# sourceMappingURL=about.css.map */
