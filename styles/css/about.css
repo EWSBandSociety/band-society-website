@@ -59,8 +59,6 @@ h1 {
 }
 
 body > header {
-  display: flex;
-  align-items: center;
   font-family: "Rambla", Helvetica, Arial, sans-serif;
   font-weight: bold;
   letter-spacing: 0.5px;
@@ -69,9 +67,11 @@ body > header {
   top: 16px;
   left: 16px;
   right: 16px;
-  justify-content: space-between;
   min-height: 76px;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: hsl(210, 6%, 10.72%);
   border: 1px solid hsl(210, 6%, 20.95%);
   border-radius: 16px;
@@ -84,30 +84,53 @@ body > header .logo {
   margin: 6px 6px 6px 16px;
   text-align: left;
 }
-body > header nav {
+body > header .nav-socials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+body > header .nav-socials nav {
   font-size: 1.4rem;
 }
-body > header nav ul {
+body > header .nav-socials nav ul {
   display: flex;
   align-items: center;
   gap: 10px;
   list-style: none;
-  margin: 0 16px 0 0;
+  margin: 0;
   padding: 0;
 }
-body > header nav a {
+body > header .nav-socials nav a {
   display: flex;
   align-items: center;
-  padding: 12px 1.8vw;
+  text-align: center;
   text-decoration: none;
   color: hsl(210, 38%, 95%);
   border-radius: 8px;
+  padding: 0 14px;
+  height: 50px;
 }
-body > header nav a:hover {
+body > header .nav-socials nav a:hover {
   background: hsl(210, 6%, 20.95%);
 }
-body > header nav a.selected {
+body > header .nav-socials nav a.selected {
   background: hsla(0, 88%, 37%, 0.6);
+}
+body > header .nav-socials .socials {
+  margin-right: 16px;
+}
+body > header .nav-socials .socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+  color: hsl(210, 38%, 95%);
+  text-decoration: none;
+  border-radius: 8px;
+}
+body > header .nav-socials .socials a:hover {
+  background-color: hsl(210, 6%, 20.95%);
 }
 
 h1 {

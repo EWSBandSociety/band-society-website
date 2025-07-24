@@ -47,6 +47,7 @@ $radius-small: 8px;
 
 $header-height: 76px; // Includes 10px top margin
 $header-offset: 28px;
+$nav-item-size: 50px;
 
 @mixin flex-center-align {
   display: flex;
@@ -83,15 +84,15 @@ h1 {
 }
 
 body > header {
-  @include flex-center-align;
   @include header-font;
   position: fixed;
   top: 16px;
   left: 16px;
   right: 16px;
-  justify-content: space-between;
   min-height: $header-height;
   z-index: 1;
+  @include flex-center-align;
+  justify-content: space-between;
 
   background-color: color.scale($bg, $lightness: 4%, $space: hsl);
   border: 1px solid $bg-light;
@@ -106,29 +107,53 @@ body > header {
     text-align: left;
   }
 
-  nav {
-    font-size: 1.4rem;
+  .nav-socials {
+    @include flex-center-align;
+    gap: 10px;
 
-    ul {
-      @include flex-center-align;
-      gap: 10px;
-      list-style: none;
-      margin: 0 16px 0 0;
-      padding: 0;
-    }
-    a {
-      @include flex-center-align;
-      padding: 12px 1.8vw;
+    nav {
+      font-size: 1.4rem;
 
-      text-decoration: none;
-      color: $text;
-      border-radius: $radius-small;
-
-      &:hover {
-        background: $bg-light;
+      ul {
+        @include flex-center-align;
+        gap: 10px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
       }
-      &.selected {
-        background: color.change($accent, $alpha: 0.6, $space: hsl);
+      a {
+        @include flex-center-align;
+        text-align: center;
+        text-decoration: none;
+        color: $text;
+        border-radius: $radius-small;
+        padding: 0 14px;
+        height: $nav-item-size;
+
+        &:hover {
+          background: $bg-light;
+        }
+        &.selected {
+          background: color.change($accent, $alpha: 0.6, $space: hsl);
+        }
+      }
+    }
+
+    .socials {
+      margin-right: 16px;
+
+      a {
+        @include flex-center-align;
+        justify-content: center;
+        height: $nav-item-size;
+        width: $nav-item-size;
+        color: $text;
+        text-decoration: none;
+        border-radius: $radius-small;
+
+        &:hover {
+          background-color: $bg-light;
+        }
       }
     }
   }
