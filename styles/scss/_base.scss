@@ -38,9 +38,10 @@ Copyright (C) 2025 Ethan Bayer
 $bg: hsl(210, 6%, 7%);
 $bg-light: color.scale($bg, $lightness: 15%, $space: hsl);
 $bg-dark: color.scale($bg, $lightness: -30%, $space: hsl);
-$text: hsl(210, 38%, 95%);
+$text: hsl(210, 38%, 95%); // Remember to change non-inline icons
 $text-muted: hsl(213, 6%, 65%);
-$accent: hsl(0, 88%, 37%);
+$accent: hsl(0, 100%, 26%);
+$accent-dark: color.scale($accent, $lightness: -8%, $space: hsl);
 
 $radius-large: 16px;
 $radius-small: 8px;
@@ -53,106 +54,194 @@ $nav-item-size: 50px;
   display: flex;
   align-items: center;
 }
-@mixin header-font {
+
+// Font Mixins
+@mixin font-heading-large {
   font-family: "Rambla", Helvetica, Arial, sans-serif;
   font-weight: bold;
-  letter-spacing: 0.5px;
-  color: $text;
+  font-size: 2.25rem;
 }
-@mixin body-font {
+@mixin font-heading-medium {
+  font-family: "Rambla", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.75rem;
+}
+@mixin font-heading-small {
+  font-family: "Rambla", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+@mixin font-heading-extra-small {
+  font-family: "Rambla", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.125rem;
+}
+@mixin font-body-large {
   font-family: "Route 159", Helvetica, Arial, sans-serif;
-  color: $text;
+  font-weight: normal;
+  font-size: 1.125rem;
+}
+@mixin font-body-medium {
+  font-family: "Route 159", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 1rem;
+}
+@mixin font-body-small {
+  font-family: "Route 159", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 0.875rem;
 }
 
 body {
   background: $bg-dark;
-  padding-top: $header-height + $header-offset;
+  padding: ($header-height + $header-offset) 16px 0 16px;
   text-align: center;
   padding-bottom: 20px;
-}
-p {
-  @include body-font;
-}
-h1,
-h2,
-h3 {
-  @include header-font;
+  color: $text;
 }
 h1 {
-  font-size: 2.8rem;
-  margin-bottom: 1.8rem;
+  @include font-heading-large;
+}
+h2 {
+  @include font-heading-medium;
 }
 
 body > header {
-  @include header-font;
   position: fixed;
   top: 16px;
   left: 16px;
   right: 16px;
   min-height: $header-height;
   z-index: 1;
+
   @include flex-center-align;
   justify-content: space-between;
 
-  background-color: color.scale($bg, $lightness: 4%, $space: hsl);
+  background: $bg;
   border: 1px solid $bg-light;
   border-radius: $radius-large;
-  box-shadow: 0px 1px 6px $bg-dark;
+  box-shadow: 0 1px 6px $bg-dark;
+  transition: box-shadow 0.2s;
 
-  .logo {
-    text-decoration: none;
-    font-size: 2.4rem;
-    color: $text;
-    margin: 6px 6px 6px 16px;
-    text-align: left;
+  &:hover {
+    box-shadow: 0 0 3px $accent;
   }
 
-  .nav-socials {
+  h1 {
+    margin: 0;
+  }
+
+  .logo {
+    @include font-heading-large;
+    color: $text;
+    text-decoration: none;
+    text-align: left;
+
+    margin: 6px 6px 6px 16px;
+  }
+
+  nav {
     @include flex-center-align;
     gap: 10px;
 
-    nav {
-      font-size: 1.4rem;
+    .menu-item {
+      @include font-heading-small;
+      border: none; // Resets <button> styling
+      border-radius: $radius-small;
+      background: transparent;
+      color: $text;
 
-      ul {
-        @include flex-center-align;
-        gap: 10px;
-        list-style: none;
-        margin: 0;
-        padding: 0;
+      @include flex-center-align;
+      justify-content: center;
+      padding: 0 14px;
+      height: $nav-item-size;
+
+      &:hover {
+        background: $bg-light;
       }
-      a {
-        @include flex-center-align;
-        text-align: center;
-        text-decoration: none;
-        color: $text;
-        border-radius: $radius-small;
-        padding: 0 14px;
-        height: $nav-item-size;
+
+      &.selected,
+      &:active {
+        background: $accent-dark;
+      }
+    }
+
+    .dropdown {
+      .menu-item {
+        display: flex;
+        gap: 5px;
+        padding-right: 9px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
 
         &:hover {
           background: $bg-light;
         }
-        &.selected {
-          background: color.change($accent, $alpha: 0.6, $space: hsl);
+        svg {
+          color: $text-muted;
         }
+      }
+
+      &:hover .menu-item {
+        background: $bg-light;
+      }
+      &:hover .dropdown-content {
+        display: flex;
       }
     }
 
-    .socials {
+    a {
+      text-decoration: none;
+    }
+    .social {
+      padding: 0;
+      width: $nav-item-size;
+    }
+
+    // Add left and right margin
+    &:first-child {
+      margin-left: 16px;
+    }
+    &:last-child {
       margin-right: 16px;
+    }
+
+    // Styling for dropdown content
+    .dropdown-content {
+      display: none;
+      flex-flow: column;
+      position: absolute;
+
+      border-radius: $radius-small;
+      background: $bg;
 
       a {
-        @include flex-center-align;
-        justify-content: center;
-        height: $nav-item-size;
-        width: $nav-item-size;
-        color: $text;
-        text-decoration: none;
-        border-radius: $radius-small;
+        @include font-heading-extra-small;
+        color: $text-muted;
+        display: block;
+        padding: 12px;
+        border: 1px solid $bg-light;
+        margin: -0.5px 0;
+
+        &:first-child {
+          border-top-left-radius: 0;
+          border-top-right-radius: $radius-small;
+          margin-top: 0;
+        }
+        &:last-child {
+          border-bottom-left-radius: $radius-small;
+          border-bottom-right-radius: $radius-small;
+          margin-bottom: 0;
+        }
 
         &:hover {
-          background-color: $bg-light;
+          background: $bg-light;
+        }
+        &.selected,
+        &:active {
+          z-index: 0;
+          border-color: $accent-dark;
+          background: $accent-dark;
         }
       }
     }

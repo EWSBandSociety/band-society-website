@@ -5,16 +5,13 @@ Copyright (C) 2025 Ethan Bayer
 */
 
 @use "base";
-@use "sass:color";
 
 h1 {
   margin-bottom: 0;
 }
-h2 {
-  font-size: 1.8rem;
-}
 
 .about-p {
+  @include base.font-body-medium;
   margin-bottom: 3rem;
 }
 
@@ -28,28 +25,26 @@ h2 {
   article {
     width: 180px;
     padding: 24px;
-    background: linear-gradient(
-        color.scale(base.$bg, $lightness: 1.5%, $space: hsl),
-        base.$bg
-      ),
-      base.$bg;
+    background: base.$bg;
     border-radius: base.$radius-large;
     border: 1px solid base.$bg-light;
-    border-top: 1px solid
-      color.scale(base.$bg-light, $lightness: 5%, $space: hsl);
-    color: base.$text;
     transition: box-shadow 0.1s;
 
     &:hover {
       box-shadow: 0 0 6px base.$accent;
+
+      img {
+        box-shadow: 0 0 4px 0px base.$accent;
+      }
     }
 
     img {
+      transition: box-shadow 0.1s;
       border: 1px solid base.$bg-light;
       border-radius: 50%;
     }
     h3 {
-      font-size: 1.4rem;
+      @include base.font-heading-small;
       margin: 24px 0 0 0;
     }
     .title-and-class {
@@ -59,10 +54,10 @@ h2 {
       gap: 0.6rem;
       margin: 4px 0 15px 0;
 
+      @include base.font-body-medium;
+      color: base.$text-muted;
+
       p {
-        @include base.header-font;
-        color: base.$text-muted;
-        font-size: 1.05rem;
         margin: 0;
       }
       .dot-separator {

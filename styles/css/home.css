@@ -34,35 +34,25 @@ Copyright (C) 2025 Ethan Bayer
 }
 body {
   background: hsl(210, 6%, 4.9%);
-  padding-top: 104px;
+  padding: 104px 16px 0 16px;
   text-align: center;
   padding-bottom: 20px;
-}
-
-p {
-  font-family: "Route 159", Helvetica, Arial, sans-serif;
-  color: hsl(210, 38%, 95%);
-}
-
-h1,
-h2,
-h3 {
-  font-family: "Rambla", Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  letter-spacing: 0.5px;
   color: hsl(210, 38%, 95%);
 }
 
 h1 {
-  font-size: 2.8rem;
-  margin-bottom: 1.8rem;
+  font-family: "Rambla", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 2.25rem;
+}
+
+h2 {
+  font-family: "Rambla", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.75rem;
 }
 
 body > header {
-  font-family: "Rambla", Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  letter-spacing: 0.5px;
-  color: hsl(210, 38%, 95%);
   position: fixed;
   top: 16px;
   left: 16px;
@@ -72,63 +62,116 @@ body > header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: hsl(210, 6%, 10.72%);
+  background: hsl(210, 6%, 7%);
   border: 1px solid hsl(210, 6%, 20.95%);
   border-radius: 16px;
-  box-shadow: 0px 1px 6px hsl(210, 6%, 4.9%);
+  box-shadow: 0 1px 6px hsl(210, 6%, 4.9%);
+  transition: box-shadow 0.2s;
+}
+body > header:hover {
+  box-shadow: 0 0 3px hsl(0, 100%, 26%);
+}
+body > header h1 {
+  margin: 0;
 }
 body > header .logo {
-  text-decoration: none;
-  font-size: 2.4rem;
+  font-family: "Rambla", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 2.25rem;
   color: hsl(210, 38%, 95%);
-  margin: 6px 6px 6px 16px;
+  text-decoration: none;
   text-align: left;
+  margin: 6px 6px 6px 16px;
 }
-body > header .nav-socials {
+body > header nav {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-body > header .nav-socials nav {
-  font-size: 1.4rem;
-}
-body > header .nav-socials nav ul {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-body > header .nav-socials nav a {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  text-decoration: none;
-  color: hsl(210, 38%, 95%);
+body > header nav .menu-item {
+  font-family: "Rambla", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  border: none;
   border-radius: 8px;
-  padding: 0 14px;
-  height: 50px;
-}
-body > header .nav-socials nav a:hover {
-  background: hsl(210, 6%, 20.95%);
-}
-body > header .nav-socials nav a.selected {
-  background: hsla(0, 88%, 37%, 0.6);
-}
-body > header .nav-socials .socials {
-  margin-right: 16px;
-}
-body > header .nav-socials .socials a {
+  background: transparent;
+  color: hsl(210, 38%, 95%);
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 14px;
   height: 50px;
-  width: 50px;
-  color: hsl(210, 38%, 95%);
-  text-decoration: none;
-  border-radius: 8px;
 }
-body > header .nav-socials .socials a:hover {
-  background-color: hsl(210, 6%, 20.95%);
+body > header nav .menu-item:hover {
+  background: hsl(210, 6%, 20.95%);
+}
+body > header nav .menu-item.selected, body > header nav .menu-item:active {
+  background: hsl(0, 100%, 23.92%);
+}
+body > header nav .dropdown .menu-item {
+  display: flex;
+  gap: 5px;
+  padding-right: 9px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+body > header nav .dropdown .menu-item:hover {
+  background: hsl(210, 6%, 20.95%);
+}
+body > header nav .dropdown .menu-item svg {
+  color: hsl(213, 6%, 65%);
+}
+body > header nav .dropdown:hover .menu-item {
+  background: hsl(210, 6%, 20.95%);
+}
+body > header nav .dropdown:hover .dropdown-content {
+  display: flex;
+}
+body > header nav a {
+  text-decoration: none;
+}
+body > header nav .social {
+  padding: 0;
+  width: 50px;
+}
+body > header nav:first-child {
+  margin-left: 16px;
+}
+body > header nav:last-child {
+  margin-right: 16px;
+}
+body > header nav .dropdown-content {
+  display: none;
+  flex-flow: column;
+  position: absolute;
+  border-radius: 8px;
+  background: hsl(210, 6%, 7%);
+}
+body > header nav .dropdown-content a {
+  font-family: "Rambla", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.125rem;
+  color: hsl(213, 6%, 65%);
+  display: block;
+  padding: 12px;
+  border: 1px solid hsl(210, 6%, 20.95%);
+  margin: -0.5px 0;
+}
+body > header nav .dropdown-content a:first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 8px;
+  margin-top: 0;
+}
+body > header nav .dropdown-content a:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  margin-bottom: 0;
+}
+body > header nav .dropdown-content a:hover {
+  background: hsl(210, 6%, 20.95%);
+}
+body > header nav .dropdown-content a.selected, body > header nav .dropdown-content a:active {
+  z-index: 0;
+  border-color: hsl(0, 100%, 23.92%);
+  background: hsl(0, 100%, 23.92%);
 }/*# sourceMappingURL=home.css.map */
