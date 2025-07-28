@@ -1,0 +1,20 @@
+/*
+Battle of the Bands page styling
+This file is licensed under the MIT license.
+Copyright (C) 2025 Ethan Bayer
+*/
+
+@use "../base";
+
+h1 {
+  margin-bottom: 0.5rem;
+}
+header + p {
+  @include base.font-heading-small;
+  color: base.$text-muted;
+  margin: 0 0 2rem 0;
+}
+
+p {
+  @include base.font-body-medium;
+}
