@@ -34,9 +34,9 @@ Copyright (C) 2025 Ethan Bayer
 }
 body {
   background: hsl(210, 6%, 4.9%);
-  padding: 104px 16px 0 16px;
+  margin: 0;
+  padding-top: 116px;
   text-align: center;
-  padding-bottom: 20px;
   color: hsl(210, 38%, 95%);
 }
 
@@ -50,6 +50,12 @@ h2 {
   font-family: "Rambla", Helvetica, Arial, sans-serif;
   font-weight: bold;
   font-size: 1.75rem;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
 }
 
 body > header {

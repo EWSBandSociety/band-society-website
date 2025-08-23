@@ -6,13 +6,11 @@ Copyright (C) 2025 Ethan Bayer
 
 @use "base";
 
-h1 {
-  margin-bottom: 0;
+main {
+  padding: 0 16px 20px 16px;
 }
-
-.about-p {
-  @include base.font-body-medium;
-  margin-bottom: 3rem;
+h1 {
+  margin-bottom: 16px;
 }
 
 .board-grid {
@@ -25,9 +23,7 @@ h1 {
   article {
     width: 180px;
     padding: 24px;
-    background: base.$bg;
-    border-radius: base.$radius-large;
-    border: 1px solid base.$bg-light;
+    @include base.box-styling;
     transition: box-shadow 0.1s;
 
     &:hover {
@@ -43,9 +39,9 @@ h1 {
       border: 1px solid base.$bg-light;
       border-radius: 50%;
     }
-    h3 {
+    h2 {
       @include base.font-heading-small;
-      margin: 24px 0 0 0;
+      margin-top: 24px;
     }
     .title-and-class {
       @include base.flex-center-align;

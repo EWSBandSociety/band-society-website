@@ -47,7 +47,7 @@ $radius-large: 16px;
 $radius-small: 8px;
 
 $header-height: 76px; // Includes 10px top margin
-$header-offset: 28px;
+$header-offset: 40px;
 $nav-item-size: 50px;
 
 @mixin flex-center-align {
@@ -92,11 +92,17 @@ $nav-item-size: 50px;
   font-size: 0.875rem;
 }
 
+@mixin box-styling {
+  background: $bg;
+  border-radius: $radius-large;
+  border: 1px solid $bg-light;
+}
+
 body {
   background: $bg-dark;
-  padding: ($header-height + $header-offset) 16px 0 16px;
+  margin: 0;
+  padding-top: ($header-height + $header-offset);
   text-align: center;
-  padding-bottom: 20px;
   color: $text;
 }
 h1 {
@@ -104,6 +110,11 @@ h1 {
 }
 h2 {
   @include font-heading-medium;
+}
+h1,
+h2,
+h3 {
+  margin: 0;
 }
 
 body > header {
