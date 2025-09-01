@@ -6,6 +6,10 @@ Copyright (C) 2025 Ethan Bayer
 
 @use "base";
 
+p {
+  @include base.font-body-medium;
+}
+
 main {
   > section {
     margin-bottom: 32px;
@@ -13,6 +17,10 @@ main {
     h2 {
       margin-bottom: 16px;
     }
+  }
+
+  section:last-child {
+    margin-bottom: 0;
   }
 }
 
@@ -45,8 +53,8 @@ main {
         display: block;
         background: base.$bg-light;
         border-radius: base.$radius-small;
-        padding: 8px;
-        margin: 0 40px;
+        padding: 12px;
+        margin: 16px 36px 0 36px;
 
         &:hover {
           background: base.$accent;

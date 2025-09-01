@@ -6,9 +6,6 @@ Copyright (C) 2025 Ethan Bayer
 
 @use "base";
 
-main {
-  padding: 0 16px 20px 16px;
-}
 h1 {
   margin-bottom: 16px;
 }
@@ -30,7 +27,7 @@ h1 {
       box-shadow: 0 0 6px base.$accent;
 
       img {
-        box-shadow: 0 0 4px 0px base.$accent;
+        box-shadow: base.$accent-shadow-light;
       }
     }
 

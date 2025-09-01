@@ -35,25 +35,24 @@ Copyright (C) 2025 Ethan Bayer
   font-style: normal;
 }
 
+// Standard Variables
 $bg: hsl(210, 6%, 7%);
 $bg-light: color.scale($bg, $lightness: 15%, $space: hsl);
 $bg-dark: color.scale($bg, $lightness: -30%, $space: hsl);
 $text: hsl(210, 38%, 95%); // Remember to change non-inline icons
 $text-muted: hsl(213, 6%, 65%);
 $accent: hsl(0, 100%, 26%);
-$accent-dark: color.scale($accent, $lightness: -8%, $space: hsl);
 
 $radius-large: 16px;
 $radius-small: 8px;
 
+$accent-shadow-light: 0 0 4px $accent;
+
+// Misc. Variables
 $header-height: 76px; // Includes 10px top margin
 $header-offset: 40px;
 $nav-item-size: 50px;
-
-@mixin flex-center-align {
-  display: flex;
-  align-items: center;
-}
+$footer-height: 25px;
 
 // Font Mixins
 @mixin font-heading-large {
@@ -91,20 +90,28 @@ $nav-item-size: 50px;
   font-weight: normal;
   font-size: 0.875rem;
 }
+@mixin font-body-extra-small {
+  font-family: "Route 159", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 0.75rem;
+}
 
+// Misc. Mixins
+@mixin flex-center-align {
+  display: flex;
+  align-items: center;
+}
 @mixin box-styling {
   background: $bg;
   border-radius: $radius-large;
   border: 1px solid $bg-light;
 }
 
-body {
-  background: $bg-dark;
-  margin: 0;
-  padding-top: ($header-height + $header-offset);
-  text-align: center;
-  color: $text;
+html {
+  position: relative;
+  min-height: 100%;
 }
+
 h1 {
   @include font-heading-large;
 }
@@ -117,144 +124,181 @@ h3 {
   margin: 0;
 }
 
-body > header {
-  position: fixed;
-  top: 16px;
-  left: 16px;
-  right: 16px;
-  min-height: $header-height;
-  z-index: 1;
-
-  @include flex-center-align;
-  justify-content: space-between;
-
-  background: $bg;
-  border: 1px solid $bg-light;
-  border-radius: $radius-large;
-  box-shadow: 0 1px 6px $bg-dark;
-  transition: box-shadow 0.2s;
+a {
+  color: color.scale($accent, $lightness: 30%, $space: hsl);
 
   &:hover {
-    box-shadow: 0 0 3px $accent;
+    color: $accent;
+  }
+}
+
+body {
+  background: $bg-dark;
+  margin: 0;
+  padding-top: ($header-height + $header-offset);
+  padding-bottom: $footer-height;
+  text-align: center;
+  color: $text;
+
+  main {
+    padding: 0 16px 16px 16px;
   }
 
-  h1 {
-    margin: 0;
-  }
+  > header {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    min-height: $header-height;
+    z-index: 1;
 
-  .logo {
-    @include font-heading-large;
-    color: $text;
-    text-decoration: none;
-    text-align: left;
-
-    margin: 6px 6px 6px 16px;
-  }
-
-  nav {
     @include flex-center-align;
-    gap: 10px;
+    justify-content: space-between;
 
-    .menu-item {
-      @include font-heading-small;
-      border: none; // Resets <button> styling
-      border-radius: $radius-small;
-      background: transparent;
+    background: $bg;
+    border: 1px solid $bg-light;
+    border-radius: $radius-large;
+    box-shadow: 0 1px 6px $bg-dark;
+    transition: box-shadow 0.2s;
+
+    &:hover {
+      box-shadow: $accent-shadow-light;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    .logo {
+      @include font-heading-large;
       color: $text;
-
-      @include flex-center-align;
-      justify-content: center;
-      padding: 0 14px;
-      height: $nav-item-size;
-
-      &:hover {
-        background: $bg-light;
-      }
-
-      &.selected,
-      &:active {
-        background: $accent-dark;
-      }
-    }
-
-    .dropdown {
-      .menu-item {
-        display: flex;
-        gap: 5px;
-        padding-right: 9px;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-
-        &:hover {
-          background: $bg-light;
-        }
-        svg {
-          color: $text-muted;
-        }
-      }
-
-      &:hover .menu-item {
-        background: $bg-light;
-      }
-      &:hover .dropdown-content {
-        display: flex;
-      }
-    }
-
-    a {
       text-decoration: none;
-    }
-    .social {
-      padding: 0;
-      width: $nav-item-size;
-    }
+      text-align: left;
 
-    // Add left and right margin
-    &:first-child {
-      margin-left: 16px;
-    }
-    &:last-child {
-      margin-right: 16px;
+      margin: 6px 6px 6px 16px;
     }
 
-    // Styling for dropdown content
-    .dropdown-content {
-      display: none;
-      flex-flow: column;
-      position: absolute;
+    nav {
+      @include flex-center-align;
+      gap: 10px;
 
-      border-radius: $radius-small;
-      background: $bg;
+      .menu-item {
+        @include font-heading-small;
+        border: none; // Resets <button> styling
+        border-radius: $radius-small;
+        background: transparent;
+        color: $text;
 
-      a {
-        @include font-heading-extra-small;
-        color: $text-muted;
-        display: block;
-        padding: 12px;
-        border: 1px solid $bg-light;
-        margin: -0.5px 0;
-
-        &:first-child {
-          border-top-left-radius: 0;
-          border-top-right-radius: $radius-small;
-          margin-top: 0;
-        }
-        &:last-child {
-          border-bottom-left-radius: $radius-small;
-          border-bottom-right-radius: $radius-small;
-          margin-bottom: 0;
-        }
+        @include flex-center-align;
+        justify-content: center;
+        padding: 0 14px;
+        height: $nav-item-size;
 
         &:hover {
           background: $bg-light;
         }
+
         &.selected,
         &:active {
-          z-index: 0;
-          border-color: $accent-dark;
-          background: $accent-dark;
+          background: $accent;
         }
       }
+
+      .dropdown {
+        .menu-item {
+          display: flex;
+          gap: 5px;
+          padding-right: 9px;
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+
+          &:hover {
+            background: $bg-light;
+          }
+          svg {
+            color: $text-muted;
+          }
+        }
+
+        &:hover .menu-item {
+          background: $bg-light;
+        }
+        &:hover .dropdown-content {
+          display: flex;
+        }
+      }
+
+      a {
+        text-decoration: none;
+      }
+      .social {
+        padding: 0;
+        width: $nav-item-size;
+      }
+
+      // Add left and right margin
+      &:first-child {
+        margin-left: 16px;
+      }
+      &:last-child {
+        margin-right: 16px;
+      }
+
+      // Styling for dropdown content
+      .dropdown-content {
+        display: none;
+        flex-flow: column;
+        position: absolute;
+
+        border-radius: $radius-small;
+        background: $bg;
+
+        a {
+          @include font-heading-extra-small;
+          color: $text-muted;
+          display: block;
+          padding: 12px;
+          border: 1px solid $bg-light;
+          margin: -0.5px 0;
+
+          &:first-child {
+            border-top-left-radius: 0;
+            border-top-right-radius: $radius-small;
+            margin-top: 0;
+          }
+          &:last-child {
+            border-bottom-left-radius: $radius-small;
+            border-bottom-right-radius: $radius-small;
+            margin-bottom: 0;
+          }
+
+          &:hover {
+            background: $bg-light;
+          }
+          &.selected,
+          &:active {
+            z-index: 0;
+            border-color: $accent;
+            background: $accent;
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: $footer-height;
+    background: $accent;
+
+    p {
+      @include font-body-extra-small;
+      margin: 0;
     }
   }
 }

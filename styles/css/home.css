@@ -32,12 +32,9 @@ Copyright (C) 2025 Ethan Bayer
   font-weight: bold;
   font-style: normal;
 }
-body {
-  background: hsl(210, 6%, 4.9%);
-  margin: 0;
-  padding-top: 116px;
-  text-align: center;
-  color: hsl(210, 38%, 95%);
+html {
+  position: relative;
+  min-height: 100%;
 }
 
 h1 {
@@ -58,6 +55,24 @@ h3 {
   margin: 0;
 }
 
+a {
+  color: hsl(0, 100%, 48.2%);
+}
+a:hover {
+  color: hsl(0, 100%, 26%);
+}
+
+body {
+  background: hsl(210, 6%, 4.9%);
+  margin: 0;
+  padding-top: 116px;
+  padding-bottom: 25px;
+  text-align: center;
+  color: hsl(210, 38%, 95%);
+}
+body main {
+  padding: 0 16px 16px 16px;
+}
 body > header {
   position: fixed;
   top: 16px;
@@ -75,7 +90,7 @@ body > header {
   transition: box-shadow 0.2s;
 }
 body > header:hover {
-  box-shadow: 0 0 3px hsl(0, 100%, 26%);
+  box-shadow: 0 0 4px hsl(0, 100%, 26%);
 }
 body > header h1 {
   margin: 0;
@@ -112,7 +127,7 @@ body > header nav .menu-item:hover {
   background: hsl(210, 6%, 20.95%);
 }
 body > header nav .menu-item.selected, body > header nav .menu-item:active {
-  background: hsl(0, 100%, 23.92%);
+  background: hsl(0, 100%, 26%);
 }
 body > header nav .dropdown .menu-item {
   display: flex;
@@ -178,8 +193,30 @@ body > header nav .dropdown-content a:hover {
 }
 body > header nav .dropdown-content a.selected, body > header nav .dropdown-content a:active {
   z-index: 0;
-  border-color: hsl(0, 100%, 23.92%);
-  background: hsl(0, 100%, 23.92%);
+  border-color: hsl(0, 100%, 26%);
+  background: hsl(0, 100%, 26%);
+}
+body footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 25px;
+  background: hsl(0, 100%, 26%);
+}
+body footer p {
+  font-family: "Route 159", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 0.75rem;
+  margin: 0;
+}
+
+p {
+  font-family: "Route 159", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 1rem;
 }
 
 main > section {
@@ -187,6 +224,9 @@ main > section {
 }
 main > section h2 {
   margin-bottom: 16px;
+}
+main section:last-child {
+  margin-bottom: 0;
 }
 
 .events .events-boxes {
@@ -223,8 +263,8 @@ main > section h2 {
   display: block;
   background: hsl(210, 6%, 20.95%);
   border-radius: 8px;
-  padding: 8px;
-  margin: 0 40px;
+  padding: 12px;
+  margin: 16px 36px 0 36px;
 }
 .events .events-boxes article a:hover {
   background: hsl(0, 100%, 26%);
