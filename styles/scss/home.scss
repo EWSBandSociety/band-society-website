@@ -24,6 +24,27 @@ main {
   }
 }
 
+.about-container {
+  p {
+    @include base.font-body-large;
+    max-width: 52rem;
+    text-align: center;
+    margin: 16px auto 0 auto;
+  }
+
+  img {
+    border-radius: base.$radius-large;
+  }
+
+  @media (max-width: 382px) {
+    // If screen is smaller than image + padding, scale image width
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
 .events {
   .events-boxes {
     display: flex;
