@@ -105,6 +105,13 @@ $footer-height: 25px;
   background: $bg;
   border-radius: $radius-large;
   border: 1px solid $bg-light;
+  transition: box-shadow 0.1s;
+
+  @media (hover: hover) {
+    &:hover {
+      box-shadow: 0 0 6px $accent;
+    }
+  }
 }
 
 html {
@@ -127,8 +134,10 @@ h3 {
 a {
   color: color.scale($accent, $lightness: 30%, $space: hsl);
 
-  &:hover {
-    color: $accent;
+  @media (hover: hover) {
+    &:hover {
+      color: $accent;
+    }
   }
 }
 
@@ -161,8 +170,10 @@ body {
     box-shadow: 0 1px 6px $bg-dark;
     transition: box-shadow 0.2s;
 
-    &:hover {
-      box-shadow: $accent-shadow-light;
+    @media (hover: hover) {
+      &:hover {
+        box-shadow: $accent-shadow-light;
+      }
     }
 
     h1 {
@@ -280,8 +291,10 @@ body {
             margin-bottom: 0;
           }
 
-          &:hover {
-            background: $bg-light;
+          @media (hover: hover) {
+            &:hover {
+              background: $bg-light;
+            }
           }
           &.selected,
           &:active {

@@ -77,8 +77,10 @@ main {
         padding: 12px;
         margin: 16px 36px 0 36px;
 
-        &:hover {
-          background: base.$accent;
+        @media (hover: hover) {
+          &:hover {
+            background: base.$accent;
+          }
         }
       }
     }

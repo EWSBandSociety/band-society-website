@@ -21,13 +21,12 @@ h1 {
     width: 180px;
     padding: 24px;
     @include base.box-styling;
-    transition: box-shadow 0.1s;
 
-    &:hover {
-      box-shadow: 0 0 6px base.$accent;
-
-      img {
-        box-shadow: base.$accent-shadow-light;
+    @media (hover: hover) {
+      &:hover {
+        img {
+          box-shadow: base.$accent-shadow-light;
+        }
       }
     }
 
@@ -74,8 +73,11 @@ h1 {
       }
       svg {
         color: base.$text-muted;
-        &:hover {
-          color: base.$accent;
+
+        @media (hover: hover) {
+          &:hover {
+            color: base.$accent;
+          }
         }
       }
     }
