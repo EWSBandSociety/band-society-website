@@ -4,10 +4,10 @@ This file is licensed under the MIT license.
 Copyright (C) 2025 Ethan Bayer
 */
 
-@use "base";
+@use "main";
 
 p {
-  @include base.font-body-medium;
+  @include main.font-body-medium;
 }
 
 main {
@@ -26,14 +26,14 @@ main {
 
 .about-container {
   p {
-    @include base.font-body-large;
+    @include main.font-body-large;
     max-width: 52rem;
     text-align: center;
     margin: 16px auto 0 auto;
   }
 
   img {
-    border-radius: base.$radius-large;
+    border-radius: main.$radius-large;
   }
 
   @media (max-width: 382px) {
@@ -53,33 +53,33 @@ main {
     gap: 20px;
 
     article {
-      @include base.box-styling;
+      @include main.box-styling;
       width: 250px;
       padding: 13px 0;
 
       h3 {
-        @include base.font-heading-small;
+        @include main.font-heading-small;
 
         + p {
-          @include base.font-body-medium;
-          color: base.$text-muted;
+          @include main.font-body-medium;
+          color: main.$text-muted;
           margin: 6px 0 10px 0;
         }
       }
       a {
-        @include base.font-body-large;
+        @include main.font-body-large;
         text-decoration: none;
-        color: base.$text;
+        color: main.$text;
 
         display: block;
-        background: base.$bg-light;
-        border-radius: base.$radius-small;
+        background: main.$bg-light;
+        border-radius: main.$radius-small;
         padding: 12px;
         margin: 16px 36px 0 36px;
 
         @media (hover: hover) {
           &:hover {
-            background: base.$accent;
+            background: main.$accent;
           }
         }
       }

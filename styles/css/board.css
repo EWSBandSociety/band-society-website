@@ -128,14 +128,17 @@ body > header ul .menu-item {
   border-radius: 8px;
   background: transparent;
   color: hsl(210, 38%, 95%);
+  text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 14px;
   height: 50px;
 }
-body > header ul .menu-item:hover {
-  background: hsl(210, 6%, 20.95%);
+@media (hover: hover) {
+  body > header ul .menu-item:hover {
+    background: hsl(210, 6%, 20.95%);
+  }
 }
 body > header ul .menu-item.selected, body > header ul .menu-item:active {
   background: hsl(221.49, 75.81%, 24.31%);
@@ -147,9 +150,6 @@ body > header ul .dropdown .menu-item {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
-body > header ul .dropdown .menu-item:hover {
-  background: hsl(210, 6%, 20.95%);
-}
 body > header ul .dropdown .menu-item svg {
   color: hsl(213, 6%, 65%);
 }
@@ -158,9 +158,6 @@ body > header ul .dropdown:hover .menu-item {
 }
 body > header ul .dropdown:hover .dropdown-content {
   display: flex;
-}
-body > header ul a {
-  text-decoration: none;
 }
 body > header ul .social {
   padding: 0;
@@ -188,6 +185,7 @@ body > header ul .dropdown-content a {
   padding: 12px;
   border: 1px solid hsl(210, 6%, 20.95%);
   margin: -0.5px 0;
+  text-decoration: none;
 }
 body > header ul .dropdown-content a:first-child {
   border-top-left-radius: 0;
@@ -210,19 +208,23 @@ body > header ul .dropdown-content a.selected, body > header ul .dropdown-conten
   background: hsl(221.49, 75.81%, 24.31%);
 }
 body > header > button {
+  border: none;
+  border-radius: 8px;
   background: transparent;
-  border: 0px;
   color: hsl(210, 38%, 95%);
+  text-decoration: none;
+}
+@media (hover: hover) {
+  body > header > button:hover {
+    background: hsl(210, 6%, 20.95%);
+  }
+}
+body > header > button.selected, body > header > button:active {
+  background: hsl(221.49, 75.81%, 24.31%);
 }
 body > header > button svg {
   width: 50px;
   height: 50px;
-}
-body > header > button:hover {
-  background: hsl(210, 6%, 20.95%);
-}
-body > header > button:active {
-  background: hsl(221.49, 75.81%, 24.31%);
 }
 body footer {
   display: flex;
@@ -241,6 +243,19 @@ body footer p {
   margin: 0;
 }
 
+@media (min-width: 769px) {
+  .menu-button {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .x-icon {
+    display: none;
+  }
+  nav {
+    display: none;
+  }
+}
 h1 {
   margin-bottom: 16px;
 }

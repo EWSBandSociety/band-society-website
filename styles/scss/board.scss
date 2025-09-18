@@ -4,7 +4,7 @@ This file is licensed under the MIT license.
 Copyright (C) 2025 Ethan Bayer
 */
 
-@use "base";
+@use "main";
 
 h1 {
   margin-bottom: 16px;
@@ -20,34 +20,34 @@ h1 {
   article {
     width: 180px;
     padding: 24px;
-    @include base.box-styling;
+    @include main.box-styling;
 
     @media (hover: hover) {
       &:hover {
         img {
-          box-shadow: base.$accent-shadow-light;
+          box-shadow: main.$accent-shadow-light;
         }
       }
     }
 
     img {
       transition: box-shadow 0.1s;
-      border: 1px solid base.$bg-light;
+      border: 1px solid main.$bg-light;
       border-radius: 50%;
     }
     h2 {
-      @include base.font-heading-small;
+      @include main.font-heading-small;
       margin-top: 24px;
     }
     .title-and-class {
-      @include base.flex-center-align;
+      @include main.flex-center-align;
       flex-flow: wrap;
       justify-content: center;
       gap: 0.6rem;
       margin: 4px 0 15px 0;
 
-      @include base.font-body-medium;
-      color: base.$text-muted;
+      @include main.font-body-medium;
+      color: main.$text-muted;
 
       p {
         margin: 0;
@@ -55,15 +55,15 @@ h1 {
       .dot-separator {
         width: 5px;
         height: 5px;
-        background: base.$text-muted;
+        background: main.$text-muted;
         border-radius: 50%;
       }
     }
 
     .card-socials {
-      border-top: 1px solid base.$bg-light;
+      border-top: 1px solid main.$bg-light;
       padding-top: 13px;
-      @include base.flex-center-align;
+      @include main.flex-center-align;
       justify-content: center;
       gap: 12px;
 
@@ -72,11 +72,11 @@ h1 {
         text-decoration: none;
       }
       svg {
-        color: base.$text-muted;
+        color: main.$text-muted;
 
         @media (hover: hover) {
           &:hover {
-            color: base.$accent;
+            color: main.$accent;
           }
         }
       }

@@ -1,0 +1,249 @@
+/*
+Main styling
+This file is licensed under the MIT license.
+Copyright (C) 2025 Ethan Bayer
+*/
+
+@forward "base";
+@use "base";
+@use "sass:color";
+
+/////////////////////////////////
+// Default Styling + Resetting //
+/////////////////////////////////
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+h1 {
+  @include base.font-heading-large;
+}
+h2 {
+  @include base.font-heading-medium;
+}
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+main a {
+  // Main text links
+  color: color.scale(base.$accent, $lightness: 30%, $space: hsl);
+
+  @media (hover: hover) {
+    &:hover {
+      color: base.$accent;
+    }
+  }
+}
+
+svg {
+  color: base.$text;
+}
+
+/////////////////////
+// General Styling //
+/////////////////////
+
+body {
+  background: base.$bg-dark;
+  margin: 0; // Reset default margin
+  padding-top: (
+    base.$header-height + base.$header-text-offset
+  ); // Offset for header
+  padding-bottom: base.$footer-height; // Offset for footer
+  text-align: center; // Set default text align
+
+  // Add a default margin to main content area
+  main {
+    margin: 0 16px 16px 16px;
+  }
+}
+
+////////////////////
+// Header Styling //
+////////////////////
+
+.header-div {
+  @include base.flex-center-align;
+  justify-content: space-between;
+  margin: 16px;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.menu-button {
+  padding: 0;
+  @include base.flex-center-align;
+  justify-content: center;
+  @include base.menu-button-styling;
+  width: base.$nav-item-size;
+  height: base.$nav-item-size;
+}
+
+.menu-item {
+  @include base.font-heading-small;
+  @include base.menu-button-styling;
+
+  // Positioning
+  @include base.flex-center-align;
+  justify-content: center;
+  padding: 0 14px;
+}
+
+.main-header {
+  position: fixed; // Always stay on top
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  z-index: 1; // Always stay on top
+
+  // Center header-div vertically
+  @include base.flex-center-align;
+
+  // Adds border, bg fill, and box shadow
+  @include base.box-styling;
+
+  // Reset h1 styling for the home page
+  h1 {
+    margin: 0;
+  }
+
+  .logo {
+    @include base.font-heading-large;
+    height: 100%;
+    text-decoration: none;
+    text-align: left;
+  }
+
+  ul {
+    @include base.flex-center-align;
+    gap: 12px; // Gap between menu items where there is no clickable area
+    margin: 0;
+    padding: 0;
+
+    // Reset list styling
+    li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .social {
+      // Styling for social icons, like the Instagram icon
+      padding: 0;
+      width: base.$nav-item-size;
+    }
+  }
+}
+
+// Dropdown items styling
+.dropdown {
+  .menu-item {
+    gap: 5px;
+    padding-right: 9px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    svg {
+      color: base.$text-muted;
+    }
+  }
+
+  &:hover .menu-item {
+    // Not in @media (hover: hover) since I want it to work on mobile
+    // Resets default styling from menu-button-styling mixin
+    background: base.$bg-light;
+  }
+  &:hover .dropdown-content {
+    display: flex;
+  }
+}
+
+// Styling for the dropdown content box
+.dropdown-content {
+  display: none;
+  flex-flow: column;
+  position: absolute;
+
+  border-radius: base.$radius-small;
+  background: base.$bg;
+
+  a {
+    @include base.font-heading-extra-small;
+    color: base.$text-muted;
+    display: block;
+    padding: 12px;
+    border: 1px solid base.$bg-light;
+    margin: -0.5px 0;
+    text-decoration: none;
+
+    &:first-child {
+      border-top-left-radius: 0;
+      border-top-right-radius: base.$radius-small;
+      margin-top: 0;
+    }
+    &:last-child {
+      border-bottom-left-radius: base.$radius-small;
+      border-bottom-right-radius: base.$radius-small;
+      margin-bottom: 0;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background: base.$bg-light;
+      }
+    }
+    &.selected,
+    &:active {
+      z-index: 0;
+      border-color: base.$accent;
+      background: base.$accent;
+    }
+  }
+}
+
+////////////////////
+// Footer Styling //
+////////////////////
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: base.$footer-height;
+  background: base.$accent;
+
+  p {
+    @include base.font-body-extra-small;
+    margin: 0;
+  }
+}
+
+///////////////////////////////////
+// Desktop/Mobile-Specific Media //
+///////////////////////////////////
+
+// Desktop
+@media (min-width: 769px) {
+  .menu-button {
+    display: none;
+  }
+}
+
+// Mobile
+@media (max-width: 768px) {
+  .x-icon {
+    display: none;
+  }
+
+  nav {
+    display: none;
+  }
+}
