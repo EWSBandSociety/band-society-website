@@ -273,11 +273,32 @@ footer p {
   }
 }
 @media (max-width: 768px) {
-  .x-icon {
+  .no-display {
     display: none;
   }
-  nav {
+  .main-header nav {
     display: none;
+    position: fixed;
+    right: 16px;
+    top: 102px;
+    background: hsl(210, 6%, 7%);
+    border-radius: 16px;
+    border: 1px solid hsl(210, 6%, 20.95%);
+    transition: box-shadow 0.1s;
+  }
+}
+@media (max-width: 768px) and (hover: hover) {
+  .main-header nav:hover {
+    box-shadow: 0 0 6px hsl(221.49, 75.81%, 24.31%);
+  }
+}
+@media (max-width: 768px) {
+  .main-header nav ul {
+    margin: 8px;
+    gap: 8px;
+  }
+  .main-header .opened-menu {
+    display: block;
   }
 }
 h1 {

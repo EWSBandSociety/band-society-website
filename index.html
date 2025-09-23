@@ -19,13 +19,16 @@ Copyright (C) 2025 Ethan Bayer
     <meta name="theme-color" content="hsl(221.49, 75.81%, 24.31%)" />
 
     <link rel="stylesheet" href="/styles/css/home.css" />
+
+    <script src="/scripts/menu.js" defer></script>
   </head>
 
   <body>
     <header class="main-header">
       <div class="header-div">
         <a href="/" class="logo">Band Society</a>
-        <nav>
+
+        <nav id="menu-nav">
           <ul>
             <li class="dropdown">
               <button class="menu-item" type="button" aria-haspopup="menu">
@@ -77,8 +80,15 @@ Copyright (C) 2025 Ethan Bayer
           </ul>
         </nav>
 
-        <button class="menu-button" type="button" aria-label="Menu">
+        <button
+          class="menu-button"
+          onclick="openCloseMenu()"
+          type="button"
+          aria-label="Menu"
+          aria-haspopup="menu"
+        >
           <svg
+            id="menu-icon"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 640 640"
             width="44px"
@@ -91,7 +101,8 @@ Copyright (C) 2025 Ethan Bayer
             />
           </svg>
           <svg
-            class="x-icon"
+            id="x-icon"
+            class="x-icon no-display"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 640 640"
             width="44px"

@@ -239,11 +239,26 @@ footer {
 
 // Mobile
 @media (max-width: 768px) {
-  .x-icon {
+  .no-display {
     display: none;
   }
 
-  nav {
-    display: none;
+  .main-header {
+    nav {
+      display: none;
+      position: fixed;
+      right: 16px;
+      top: 16px + base.$header-height + 4px; // Top padding + header height + 1px for border
+      @include base.box-styling;
+
+      ul {
+        margin: 8px;
+        gap: 8px;
+      }
+    }
+
+    .opened-menu {
+      display: block;
+    }
   }
 }
