@@ -25,7 +25,7 @@ h1 {
     @media (hover: hover) {
       &:hover {
         img {
-          box-shadow: main.$accent-shadow-light;
+          box-shadow: 0 0 4px main.$accent;
         }
       }
     }

@@ -79,19 +79,20 @@ body {
   padding: 0;
   @include base.flex-center-align;
   justify-content: center;
-  @include base.menu-button-styling;
   width: base.$nav-item-size;
   height: base.$nav-item-size;
+  @include base.menu-button-styling;
 }
 
 .menu-item {
   @include base.font-heading-small;
-  @include base.menu-button-styling;
 
   // Positioning
   @include base.flex-center-align;
   justify-content: center;
   padding: 0 14px;
+
+  @include base.menu-button-styling;
 }
 
 .main-header {
@@ -243,10 +244,14 @@ footer {
     display: none;
   }
 
+  .opened-menu {
+    display: block;
+  }
+
   .main-header {
     nav {
-      display: none;
       position: fixed;
+      margin-left: 16px;
       right: 16px;
       top: 16px + base.$header-height + 4px; // Top padding + header height + 1px for border
       @include base.box-styling;
@@ -254,11 +259,13 @@ footer {
       ul {
         margin: 8px;
         gap: 8px;
+        flex-flow: wrap;
+        justify-content: center;
       }
-    }
 
-    .opened-menu {
-      display: block;
+      &:not(.opened-menu) {
+        display: none;
+      }
     }
   }
 }

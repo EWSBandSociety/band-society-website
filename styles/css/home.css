@@ -105,12 +105,12 @@ body main {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 50px;
+  height: 50px;
   border: none;
   border-radius: 8px;
   background: transparent;
   text-decoration: none;
-  height: 50px;
-  width: 50px;
   height: 50px;
 }
 @media (hover: hover) {
@@ -127,15 +127,15 @@ body main {
   font-weight: bold;
   font-size: 1.5rem;
   color: hsl(210, 38%, 95%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 14px;
   border: none;
   border-radius: 8px;
   background: transparent;
   text-decoration: none;
   height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 14px;
 }
 @media (hover: hover) {
   .menu-item:hover {
@@ -276,9 +276,12 @@ footer p {
   .no-display {
     display: none;
   }
+  .opened-menu {
+    display: block;
+  }
   .main-header nav {
-    display: none;
     position: fixed;
+    margin-left: 16px;
     right: 16px;
     top: 102px;
     background: hsl(210, 6%, 7%);
@@ -296,9 +299,11 @@ footer p {
   .main-header nav ul {
     margin: 8px;
     gap: 8px;
+    flex-flow: wrap;
+    justify-content: center;
   }
-  .main-header .opened-menu {
-    display: block;
+  .main-header nav:not(.opened-menu) {
+    display: none;
   }
 }
 p {
@@ -345,12 +350,12 @@ main section:last-child {
   gap: 20px;
 }
 .events .events-boxes article {
+  width: 250px;
+  padding: 16px 0;
   background: hsl(210, 6%, 7%);
   border-radius: 16px;
   border: 1px solid hsl(210, 6%, 20.95%);
   transition: box-shadow 0.1s;
-  width: 250px;
-  padding: 13px 0;
 }
 @media (hover: hover) {
   .events .events-boxes article:hover {
