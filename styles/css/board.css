@@ -80,6 +80,32 @@ svg {
   color: hsl(210, 38%, 95%);
 }
 
+.link-button {
+  font-family: "Route 159", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 1.125rem;
+  color: hsl(210, 38%, 95%);
+  text-decoration: none;
+  display: block;
+  background: hsl(210, 6%, 20.95%);
+  border-radius: 8px;
+  padding: 12px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+@media (hover: hover) {
+  .link-button:hover {
+    background: hsl(221.49, 75.81%, 24.31%);
+    color: hsl(210, 38%, 95%);
+  }
+}
+@media (hover: none) {
+  .link-button:active {
+    background: hsl(221.49, 75.81%, 24.31%);
+    color: hsl(210, 38%, 95%);
+  }
+}
+
 body {
   background: hsl(210, 6%, 4.9%);
   margin: 0;

@@ -68,21 +68,8 @@ main {
         }
       }
       a {
-        @include main.font-body-large;
-        text-decoration: none;
-        color: main.$text;
-
-        display: block;
-        background: main.$bg-light;
-        border-radius: main.$radius-small;
-        padding: 12px;
-        margin: 16px 36px 0 36px;
-
-        @media (hover: hover) {
-          &:hover {
-            background: main.$accent;
-          }
-        }
+        margin: 16px auto 0 auto;
+        @include main.button-styling;
       }
     }
   }

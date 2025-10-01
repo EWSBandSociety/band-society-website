@@ -43,6 +43,9 @@ main a {
 svg {
   color: base.$text;
 }
+.link-button {
+  @include base.button-styling;
+}
 
 /////////////////////
 // General Styling //

@@ -9,12 +9,24 @@ Copyright (C) 2025 EWS Band Society
 h1 {
   margin-bottom: 0.5rem;
 }
-header + p {
+header p {
   @include main.font-heading-small;
   color: main.$text-muted;
-  margin: 0 0 2rem 0;
+  margin: 0 0 1.25rem 0;
 }
 
 p {
   @include main.font-body-medium;
+}
+
+.forms {
+  @include main.flex-center-align;
+  flex-flow: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 1.75rem;
+}
+
+.link-button {
+  padding: 16px;
 }

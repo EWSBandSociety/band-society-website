@@ -138,3 +138,25 @@ $footer-height: 24px; // Hardcoded footer height
     background: $accent;
   }
 }
+@mixin button-styling {
+  @include font-body-large;
+  text-decoration: none;
+  display: block;
+  background: $bg-light;
+  border-radius: $radius-small;
+  padding: 12px;
+  width: fit-content;
+
+  @media (hover: hover) {
+    &:hover {
+      background: $accent;
+      color: $text;
+    }
+  }
+  @media (hover: none) {
+    &:active {
+      background: $accent;
+      color: $text;
+    }
+  }
+}

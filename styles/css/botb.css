@@ -80,6 +80,32 @@ svg {
   color: hsl(210, 38%, 95%);
 }
 
+.link-button {
+  font-family: "Route 159", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 1.125rem;
+  color: hsl(210, 38%, 95%);
+  text-decoration: none;
+  display: block;
+  background: hsl(210, 6%, 20.95%);
+  border-radius: 8px;
+  padding: 12px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+@media (hover: hover) {
+  .link-button:hover {
+    background: hsl(221.49, 75.81%, 24.31%);
+    color: hsl(210, 38%, 95%);
+  }
+}
+@media (hover: none) {
+  .link-button:active {
+    background: hsl(221.49, 75.81%, 24.31%);
+    color: hsl(210, 38%, 95%);
+  }
+}
+
 body {
   background: hsl(210, 6%, 4.9%);
   margin: 0;
@@ -310,13 +336,13 @@ h1 {
   margin-bottom: 0.5rem;
 }
 
-header + p {
+header p {
   font-family: "Rambla", Helvetica, Arial, sans-serif;
   font-weight: bold;
   font-size: 1.5rem;
   color: hsl(210, 38%, 95%);
   color: hsl(213, 6%, 65%);
-  margin: 0 0 2rem 0;
+  margin: 0 0 1.25rem 0;
 }
 
 p {
@@ -324,4 +350,17 @@ p {
   font-weight: normal;
   font-size: 1rem;
   color: hsl(210, 38%, 95%);
+}
+
+.forms {
+  display: flex;
+  align-items: center;
+  flex-flow: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 1.75rem;
+}
+
+.link-button {
+  padding: 16px;
 }/*# sourceMappingURL=botb.css.map */
