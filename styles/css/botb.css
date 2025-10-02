@@ -109,12 +109,12 @@ svg {
 body {
   background: hsl(210, 6%, 4.9%);
   margin: 0;
-  padding-top: 122px;
+  padding-top: 132px;
   padding-bottom: 24px;
   text-align: center;
 }
 body main {
-  margin: 0 16px 16px 16px;
+  margin: 0 16px 48px 16px;
 }
 
 .header-div {
@@ -342,7 +342,7 @@ header p {
   font-size: 1.5rem;
   color: hsl(210, 38%, 95%);
   color: hsl(213, 6%, 65%);
-  margin: 0 0 1.25rem 0;
+  margin: 0 auto 1.25rem auto;
 }
 
 p {
@@ -350,6 +350,9 @@ p {
   font-weight: normal;
   font-size: 1rem;
   color: hsl(210, 38%, 95%);
+  max-width: 52rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .forms {
@@ -358,9 +361,35 @@ p {
   flex-flow: wrap;
   justify-content: center;
   gap: 16px;
-  margin-top: 1.75rem;
+  margin-top: 38px;
 }
 
 .link-button {
   padding: 16px;
+}
+
+.description {
+  font-family: "Route 159", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 1.125rem;
+  color: hsl(210, 38%, 95%);
+  margin-bottom: 48px;
+}
+
+.theme-text {
+  font-family: "Route 159", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 1.125rem;
+  color: hsl(210, 38%, 95%);
+  margin-top: 32px;
+  margin-bottom: 8px;
+  color: hsl(213, 6%, 65%);
+}
+
+.throwback {
+  font-family: "Rambla", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.75rem;
+  color: hsl(210, 38%, 95%);
+  margin-top: 0;
 }/*# sourceMappingURL=botb.css.map */

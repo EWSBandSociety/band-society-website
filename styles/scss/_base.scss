@@ -49,8 +49,9 @@ $radius-small: 8px;
 // Misc. Variables
 $nav-item-size: 50px; // Height of nav items
 $header-height: 2 * 16px + $nav-item-size; // Includes 10px top margin
-$header-text-offset: 40px; // Offset of text from bottom of header
+$header-text-offset: 50px; // Offset of text from bottom of header
 $footer-height: 24px; // Hardcoded footer height
+$footer-offset: 48px;
 
 // Font Mixins
 @mixin font-heading-large {

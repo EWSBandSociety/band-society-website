@@ -109,12 +109,12 @@ svg {
 body {
   background: hsl(210, 6%, 4.9%);
   margin: 0;
-  padding-top: 122px;
+  padding-top: 132px;
   padding-bottom: 24px;
   text-align: center;
 }
 body main {
-  margin: 0 16px 16px 16px;
+  margin: 0 16px 48px 16px;
 }
 
 .header-div {
