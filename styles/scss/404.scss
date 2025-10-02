@@ -1,0 +1,22 @@
+/*
+404 page styling
+This file is licensed under the MIT license.
+Copyright (C) 2025 EWS Band Society
+*/
+
+@use "main";
+
+h1 {
+  font-size: 8rem;
+}
+
+h2 {
+  @include main.font-heading-large;
+}
+p {
+  @include main.font-body-large;
+}
+
+.link-button {
+  margin: 32px auto 0 auto;
+}
