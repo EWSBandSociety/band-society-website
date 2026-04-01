@@ -1,5 +1,5 @@
 /*
-404 page styling
+Battle of the Bands page styling
 This file is licensed under the MIT license.
 Copyright (C) 2025 EWS Band Society
 */
@@ -346,23 +346,14 @@ footer p {
   }
 }
 h1 {
-  font-size: 8rem;
+  margin-bottom: 0.5rem;
 }
 
-h2 {
+header + p {
   font-family: "Rambla", Helvetica, Arial, sans-serif;
   font-weight: bold;
-  font-size: 2.25rem;
+  font-size: 1.5rem;
   color: hsl(210, 38%, 95%);
-}
-
-p {
-  font-family: "Route 159", Helvetica, Arial, sans-serif;
-  font-weight: normal;
-  font-size: 1.125rem;
-  color: hsl(210, 38%, 95%);
-}
-
-.link-button {
-  margin: 32px auto 0 auto;
-}/*# sourceMappingURL=404.css.map */
+  color: hsl(213, 6%, 65%);
+  margin: 0 0 2rem 0;
+}/*# sourceMappingURL=botb-2026.css.map */

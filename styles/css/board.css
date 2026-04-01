@@ -112,6 +112,13 @@ svg {
   }
 }
 
+p {
+  font-family: "Route 159", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 1rem;
+  color: hsl(210, 38%, 95%);
+}
+
 body {
   background: hsl(210, 6%, 4.9%);
   margin: 0;

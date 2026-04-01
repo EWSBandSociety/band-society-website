@@ -1,5 +1,5 @@
 /*
-404 page styling
+Battle of the Bands page styling
 This file is licensed under the MIT license.
 Copyright (C) 2025 EWS Band Society
 */
@@ -346,23 +346,63 @@ footer p {
   }
 }
 h1 {
-  font-size: 8rem;
+  margin-bottom: 0.5rem;
 }
 
-h2 {
+header p {
   font-family: "Rambla", Helvetica, Arial, sans-serif;
   font-weight: bold;
-  font-size: 2.25rem;
+  font-size: 1.5rem;
   color: hsl(210, 38%, 95%);
+  color: hsl(213, 6%, 65%);
+  margin: 0 auto 1.25rem auto;
 }
 
 p {
   font-family: "Route 159", Helvetica, Arial, sans-serif;
   font-weight: normal;
-  font-size: 1.125rem;
+  font-size: 1rem;
   color: hsl(210, 38%, 95%);
+  max-width: 52rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.forms {
+  display: flex;
+  align-items: center;
+  flex-flow: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 32px;
 }
 
 .link-button {
-  margin: 32px auto 0 auto;
-}/*# sourceMappingURL=404.css.map */
+  padding: 16px;
+}
+
+.description {
+  font-family: "Route 159", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 1.125rem;
+  color: hsl(210, 38%, 95%);
+  margin-bottom: 48px;
+}
+
+.theme-text {
+  font-family: "Route 159", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 1.125rem;
+  color: hsl(210, 38%, 95%);
+  margin-top: 32px;
+  margin-bottom: 8px;
+  color: hsl(213, 6%, 65%);
+}
+
+.throwback {
+  font-family: "Rambla", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.75rem;
+  color: hsl(210, 38%, 95%);
+  margin-top: 0;
+}/*# sourceMappingURL=botb-2025.css.map */

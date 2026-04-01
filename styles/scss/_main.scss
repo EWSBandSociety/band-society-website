@@ -46,6 +46,9 @@ svg {
 .link-button {
   @include base.button-styling;
 }
+p {
+  @include base.font-body-medium;
+}
 
 /////////////////////
 // General Styling //
