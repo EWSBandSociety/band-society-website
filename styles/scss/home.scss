@@ -27,9 +27,7 @@ main {
 .about-container {
   p {
     @include main.font-body-large;
-    max-width: 52rem;
-    text-align: center;
-    margin: 16px auto 0 auto;
+    margin-top: 16px;
   }
 
   img {

@@ -51,6 +51,7 @@ Copyright (C) 2025 EWS Band Society
 html {
   position: relative;
   min-height: 100%;
+  text-align: center;
 }
 
 h1 {
@@ -112,11 +113,18 @@ svg {
   }
 }
 
-p {
+p,
+ul {
   font-family: "Route 159", Helvetica, Arial, sans-serif;
   font-weight: normal;
   font-size: 1rem;
   color: hsl(210, 38%, 95%);
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+li {
+  text-align: left;
 }
 
 body {
@@ -124,7 +132,6 @@ body {
   margin: 0;
   padding-top: 132px;
   padding-bottom: 24px;
-  text-align: center;
 }
 body main {
   margin: 0 16px 48px 16px;
@@ -266,6 +273,7 @@ body main {
   border: 1px solid hsl(210, 6%, 20.95%);
   margin: -0.5px 0;
   text-decoration: none;
+  text-align: center;
 }
 .dropdown-content a:first-child {
   border-top-left-radius: 0;
@@ -367,9 +375,7 @@ main section:last-child {
   font-weight: normal;
   font-size: 1.125rem;
   color: hsl(210, 38%, 95%);
-  max-width: 52rem;
-  text-align: center;
-  margin: 16px auto 0 auto;
+  margin-top: 16px;
 }
 .about-container img {
   border-radius: 16px;

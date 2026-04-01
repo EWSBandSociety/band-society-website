@@ -9,8 +9,54 @@ Copyright (C) 2025 EWS Band Society
 h1 {
   margin-bottom: 0.5rem;
 }
-header + p {
-  @include main.font-heading-small;
+h2 {
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+}
+header {
+  h2 {
+    @include main.font-heading-small;
+    color: main.$text-muted;
+  }
+  h3 {
+    @include main.font-heading-extra-small;
+    color: main.$text-muted;
+  }
+}
+section {
+  margin-bottom: 3rem;
+}
+.description {
+  @include main.font-body-large;
+  margin-bottom: 2rem;
+}
+.description-small {
+  @include main.font-body-medium;
+  margin-bottom: 2rem;
+}
+
+.theme-text {
+  @include main.font-body-large;
+  margin-bottom: 0.5rem;
   color: main.$text-muted;
-  margin: 0 0 2rem 0;
+}
+.theme-title {
+  @include main.font-heading-small;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+.canes-red {
+  color: hsl(0, 100%, 50%);
+}
+
+.forms {
+  @include main.flex-center-align;
+  flex-flow: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 1rem;
+}
+ul {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }

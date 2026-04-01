@@ -15,6 +15,7 @@ Copyright (C) 2025 EWS Band Society
 html {
   position: relative;
   min-height: 100%;
+  text-align: center; // Set default text align
 }
 
 h1 {
@@ -46,8 +47,14 @@ svg {
 .link-button {
   @include base.button-styling;
 }
-p {
+p,
+ul {
   @include base.font-body-medium;
+  max-width: 52rem;
+  margin: 0 auto;
+}
+li {
+  text-align: left;
 }
 
 /////////////////////
@@ -61,7 +68,6 @@ body {
     base.$header-height + base.$header-text-offset
   ); // Offset for header
   padding-bottom: base.$footer-height; // Offset for footer
-  text-align: center; // Set default text align
 
   // Add a default margin to main content area
   main {
@@ -187,6 +193,7 @@ body {
     border: 1px solid base.$bg-light;
     margin: -0.5px 0;
     text-decoration: none;
+    text-align: center;
 
     &:first-child {
       border-top-left-radius: 0;
