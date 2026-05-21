@@ -52,6 +52,9 @@ h1 {
       p {
         margin: 0;
       }
+      .small-desc {
+        @include main.font-body-small;
+      }
       .dot-separator {
         width: 5px;
         height: 5px;

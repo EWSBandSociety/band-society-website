@@ -410,6 +410,12 @@ h1 {
 .board-grid article .title-and-class p {
   margin: 0;
 }
+.board-grid article .title-and-class .small-desc {
+  font-family: "Route 159", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 0.875rem;
+  color: hsl(210, 38%, 95%);
+}
 .board-grid article .title-and-class .dot-separator {
   width: 5px;
   height: 5px;
